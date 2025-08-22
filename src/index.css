@@ -120,9 +120,43 @@ img{
 .your-cart{
   max-width: 30%;
   width: 100%;
-  background-color: red;
+  background-color: #FFFFFF;
+  padding: 20px;
 }
 
+.cart-info div {
+  display: flex;
+  gap: 15px;
+}
+.cart-info h3{
+  padding: 0;
+  margin: 0;
+}
+.cart-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.cart-rm-btn button{
+  border-radius: 100%;
+  width: 30px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border: 1px solid #AD8A85;
+}
+.pr-amnt{
+  color: #C73B0F;
+}
+.total-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .desserts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -158,8 +192,53 @@ img{
     flex-shrink: 0;
   }
 }
+.in-de-btn{
+  display: flex;
+  border: 1px solid black;
+  height: 20px;
+  gap: 20px;
+  padding: 1.2rem 2.8rem;
+  
+  align-items: center;
+  background-color: #D7430A;
+  border-radius: 999px;
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  margin-left: 50px;
+  left: 0;
+  bottom: 120px;
+  span{
+    flex-shrink: 0;
+  }
+}
 .cart_body{
   margin-top: 30px;
+}
+.empty-img{
+  max-width: 300px;
+  width: 100%;
+  max-height: 200px; 
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+}
+.empty-p{
+  text-align: center;
+  margin-top: 50px;
+}
+.con-btn{
+  width: 100%;
+  justify-content: center;
+  background: #DF3E1A;
+  padding: 10px 15px;
+  margin-right: auto;
+  margin-left: auto;
+  border: none;
+  margin-top: 20px;
 }
 @media screen and (max-width : 900px) {
   .container{

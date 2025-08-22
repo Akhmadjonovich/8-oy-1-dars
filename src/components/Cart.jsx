@@ -1,7 +1,13 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { addDesert, decrementDesert, incrementDesert, removeDesert } from '../app/features/desertsSlice';
 
 const Cart = ({dessert}) => {
-    
+    let {desserts} = useSelector((store) => store.desserts)
+    console.log(desserts);
+    let isAdded = desserts?.find((item) => item.id == dessert.id )
+
+    let dispatch = useDispatch()
   return (
     <div className='card'>
        <picture>
@@ -20,10 +26,34 @@ const Cart = ({dessert}) => {
             <img className='card_image' src={`${dessert.image.thumbnail}`} alt="" />
        </picture>
        <div className='cart_btn'>
-        <button className='cart_add_to'>
-            <img src="../images/icon-add-to-cart.svg" alt="" />
-            <span>Add to cart</span>
-        </button>
+        {
+          !isAdded && (
+            <button onClick={() => dispatch(addDesert(dessert))} className='cart_add_to'>
+              <img src="../images/icon-add-to-cart.svg" alt="" />
+              <span>Add to cart</span>
+            </button>
+          )
+        }
+        {
+          isAdded && (
+            <div className='in-de-btn'>
+              <button onClick={() => dispatch(incrementDesert(isAdded.id))}>
+                +
+              </button>
+              <p>{isAdded.amount}</p>
+              <button onClick={() => {
+                if(isAdded.amount == 1){
+                  dispatch(removeDesert(isAdded.id))
+                } else{
+                  dispatch(decrementDesert(isAdded.id))
+                }
+              }
+              }>
+                -
+              </button>
+            </div>
+          )
+        }
        </div>
        <div className='cart_body'>
             <p className='cart_category'>{dessert.category}</p>
